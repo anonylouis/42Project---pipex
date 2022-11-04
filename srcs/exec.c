@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonylouis <anonylouis@student.42.fr>      +#+  +:+       +#+        */
+/*   By: lcalvie <lcalvie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 16:43:40 by lcalvie           #+#    #+#             */
-/*   Updated: 2022/01/17 22:47:45 by anonylouis       ###   ########.fr       */
+/*   Updated: 2022/11/04 18:46:43 by lcalvie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	exec_cmd(t_pipex *pipex, char **envp, int last)
 		if ((pipex->cmd)->path != NULL && (pipex->cmd)->fd_in != -1)
 			if (execve((pipex->cmd)->path, (pipex->cmd)->args, envp))
 				perror("execve");
+		free_pipex(pipex);
 		exit(0);
 	}
 	if (((pipex->cmd)->fd_in != -1 && close((pipex->cmd)->fd_in))

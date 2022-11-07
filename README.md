@@ -17,7 +17,7 @@ should have the same comportment as
 
 ## Example
 
-Some tricky commands u can try :
+Some tricky commands you can try :
 - `< /dev/stdin cat | cat | ls > /dev/stdout`
 - `< /dev/stdin sleep 2 | sleep 2 > /dev/stdout`
 - `< /dev/urandom cat | head -5 > /dev/stdout`
